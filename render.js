@@ -17,7 +17,9 @@ class Renderer{
 }
 Renderer.main();
 
-class pixel{
+class Pixel{
+  color = new color(0,0,0);
+  position = new vec2(0,0);
   constructor(color,position){
     this.color = color;
     this.position = position;
@@ -27,7 +29,9 @@ class pixel{
 let pixels = [];
 for(let x = 0;x < Renderer.cvs.width;x++){
   for(let y = 0;y < Renderer.cvs.height;y++){
-    pixels[y*Renderer.cvs.width-Renderer.cvs.width+x] = new pixel(new color(0,Math.floor(Math.random()*255),255),new vec2(x,y));
+    let id = y*Renderer.cvs.width-Renderer.cvs.width+x;
+    let maxid = Renderer.cvs.height*Renderer.cvs.width;
+    pixels[id] = new Pixel(new color(id*255/maxid,0,0),new vec2(x,y));
   }
 }
 

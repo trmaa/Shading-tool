@@ -34,6 +34,10 @@ class Renderer{
         Renderer.pixels[id].position3 = new vec3(w,j,k);
       }
     }
+
+    let v = new vec3(1,2,3);
+    let v2 = new vec3(2,3,4);
+    console.log(solveSystem([v2.ecuation(),v.ecuation()]));
   }
   
   static repaint(pixels){

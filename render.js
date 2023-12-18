@@ -24,7 +24,7 @@ class Renderer{
       for(let y = 0;y < Renderer.cvs.height;y++){
         let id = y*Renderer.cvs.width-Renderer.cvs.width+x;
         let maxid = Renderer.cvs.height*Renderer.cvs.width;
-        Renderer.pixels[id] = new Pixel(new color(0,0,0),new vec2(x,y));
+        Renderer.pixels[id] = new Pixel(new color(255,255-id*255/maxid,id*255/maxid),new vec2(x,y));
 
         let w = x-Math.floor(Renderer.cvs.width*0.5);
         let j = y-Math.floor(Renderer.cvs.height*0.5);

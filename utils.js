@@ -1,7 +1,6 @@
 class vec2{
   x = 0;
   y = 0;
-  z = 0;
 
   constructor(x,y,z){
     this.x = x;
@@ -10,6 +9,10 @@ class vec2{
 
   module(){
     return Math.sqrt(Math.pow(this.x,2)+Math.pow(this.y,2));
+  }
+
+  f(x){
+    return new vec2(x*this.x/Renderer.fov,x*this.y/Renderer.fov);
   }
 }
 
@@ -26,6 +29,10 @@ class vec3{
 
   module(){
     return Math.sqrt(Math.pow(this.x,2)+Math.pow(this.y,2)+Math.pow(this.z,2));
+  }
+
+  f(x){
+    return new vec3(x*this.x/Renderer.fov,x*this.y/Renderer.fov,x*this.z/Renderer.fov);
   }
 }
 

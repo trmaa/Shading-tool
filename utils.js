@@ -14,6 +14,14 @@ class vec2{
   f(x){
     return new vec2(x*this.x/Renderer.fov,x*this.y/Renderer.fov);
   }
+
+  ecuation() {
+    let a = this.x;
+    let b = this.y;
+    let c = Math.pow(this.x, 2) + Math.pow(this.y, 2);
+
+    return { a, b, c };
+  }
 }
 
 class vec3{
@@ -33,6 +41,15 @@ class vec3{
 
   f(x){
     return new vec3(x*this.x/Renderer.fov,x*this.y/Renderer.fov,x*this.z/Renderer.fov);
+  }
+
+  ecuation() {
+    let a = this.x;
+    let b = this.y;
+    let c = this.z;
+    let d = Math.pow(this.x, 3) + Math.pow(this.y, 3) + Math.pow(this.z, 3);
+
+    return { a, b, c, d };
   }
 }
 

@@ -28,20 +28,17 @@ class Renderer{
         Renderer.pixels[id] = new Pixel(new color(255,255-id*255/maxid,id*255/maxid),new vec2(x,y));
 
         //es un pov cuadrado porque las magnitudes solo son afectadas por un angulo. si fueran afectadas por las dos: seria redondo.
-        let w = Math.floor(Math.cos(Renderer.pov.angle.y)*Renderer.fov);
-        let j = Math.floor(Math.sin(Renderer.pov.angle.x)*Renderer.fov);
-        let k = Math.floor(Math.sin(Renderer.pov.angle.y)*Renderer.fov);
+        let w = Math.floor(Math.cos(Renderer.pov.angle.y+(x/Renderer.cvs.width)-1/2)*Renderer.fov);
+        let j = Math.floor(Math.sin(Renderer.pov.angle.x+(y/Renderer.cvs.height)-1/2)*Renderer.fov);
+        let k = Math.floor(Math.sin(Renderer.pov.angle.y+(x/Renderer.cvs.width)-1/2)*Renderer.fov);
         Renderer.pixels[id].position3 = new vec3(w,j,k);
       }
     }
-
-    let v = new vec3(1,2,3);
-    let v2 = new vec3(2,3,4);
-    console.log(solveSystem([v2.ecuation(),v.ecuation()]));
   }
   
   static repaint(pixels){
     pixels.forEach(pixel=>{
+      pixel.init = Renderer.pov.position;
       let color = pixel.color.value();
       Renderer.ctx.fillStyle = color;
       Renderer.ctx.fillRect(pixel.position2.x,pixel.position2.y,1,1);

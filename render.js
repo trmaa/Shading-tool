@@ -25,7 +25,7 @@ class Renderer{
       for(let y = 0;y < Renderer.cvs.height;y++){
         let id = y*Renderer.cvs.width-Renderer.cvs.width+x;
         let maxid = Renderer.cvs.height*Renderer.cvs.width;
-        Renderer.pixels[id] = new Pixel(new color(255,255-id*255/maxid,id*255/maxid),new vec2(x,y));
+        Renderer.pixels[id] = new Pixel(new color(255,255,255),new vec2(x,y));
 
         //es un pov cuadrado porque las magnitudes solo son afectadas por un angulo. si fueran afectadas por las dos: seria redondo.
         let w = Math.floor(Math.cos(Renderer.pov.angle.y+(x/Renderer.cvs.width)-1/2)*Renderer.fov);
@@ -42,6 +42,16 @@ class Renderer{
       let color = pixel.color.value();
       Renderer.ctx.fillStyle = color;
       Renderer.ctx.fillRect(pixel.position2.x,pixel.position2.y,1,1);
+
+      Renderer.ctx.fillStyle = "#0f0";
+      Renderer.ctx.fillRect(pixel.position3.x*10-250,pixel.position3.z*10+250,10,10);
+      Renderer.ctx.fillStyle = "#00f";
+      Renderer.ctx.fillRect(pixel.position3.x*10-250,pixel.position3.y*10+250,10,10);
+    
+       for(let i = 0; i < 10;i++){
+          Renderer.ctx.fillStyle = "#0f0";
+          Renderer.ctx.fillRect(pixel.position3.f(i).x*10-250,pixel.position3.f(i).z*10+250,10,10);
+        }
     });
   }  
 }

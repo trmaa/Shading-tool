@@ -1,8 +1,14 @@
 class Main{
+	static canvas = new Canvas(10,10);
+
 	static main(){
-		Renderer.main();
-		Renderer.repaint(Renderer.pixels);
+		Main.canvas.repaint();
+	}
+	static update(){
+
 	}
 }
 
+
 Main.main();
+setInterval(Main.update(),10);

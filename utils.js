@@ -12,6 +12,22 @@ class vec2{
 	}
 }
 
+class vec3{
+	x = 0;
+	y = 0;
+	z = 0;
+
+	constructor(x,y){
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	modul(){
+		return Math.sqrt(Math.pow(this.x,2)+Math.pow(this.y,2)+Math.pow(this.z,2));
+	}
+}
+
 class Pixel{
 	id = new vec2(0,0);
 	color = "#000";

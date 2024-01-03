@@ -2,9 +2,11 @@ class Canvas {
     cvs = 0;
     ctx = 0;
     pixels = [];
-    res = 100;
+    res = 1;
 
     constructor(w, h) {
+    	this.res = 1000 / ((w+h)/2);
+
         document.write(`<canvas id='canvas' width='${w * this.res}' height='${h * this.res}'></canvas>`);
 
         this.cvs = document.querySelector("#canvas");
@@ -12,7 +14,7 @@ class Canvas {
 
         for (let x = 0; x < w; x++) {
             for (let y = 0; y < h; y++) {
-                this.pixels[x + w * y] = new Pixel(new vec2(x * this.res, y * this.res), `rgb(${255*y/w},0,0)`);
+                this.pixels[x + w * y] = new Pixel(new vec2(x * this.res, y * this.res), `rgb(${Math.random()*255 - 255*y/h},0,0)`);
             }
         }
     }

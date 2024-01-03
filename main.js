@@ -1,5 +1,5 @@
 class Main{
-	static canvas = new Canvas(10,10);
+	static canvas = new Canvas(128,72);
 
 	static main(){
 		Main.canvas.repaint();

@@ -39,7 +39,7 @@ class Ray{
 
 	constructor(o,d){
 		this.origin = o;
-		this.direction = d.normal();
+		this.direction = d;
 	}
 
 	f(t){

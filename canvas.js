@@ -15,7 +15,7 @@ class Canvas {
 
         for (let x = 0; x < w; x++) {
             for (let y = 0; y < h; y++) {
-                Canvas.pixels[x + w * y] = new Pixel(new vec2(x * Canvas.res, y * Canvas.res), `rgb(${Math.random()*255-255*y/h},0,0)`);
+                Canvas.pixels[x + w * y] = new Pixel(new vec2(x * Canvas.res, y * Canvas.res), `rgb(${255*y/h},${255*x/w},0)`);
             }
         }
     }
@@ -25,13 +25,16 @@ class Canvas {
     }
 
     static repaint() {
-        Canvas.pixels.forEach(p => {
-            Canvas.ctx.fillStyle = p.color;
-            Canvas.ctx.fillRect(p.id.x, p.id.y, Canvas.res, Canvas.res); // Ajusta el tamaño de los cuadrados
-        });
-
-        for(let i = 0;i < Canvas.pixels.length;i++)
+        for(let i = 0;i < Canvas.pixels.length;i++){
+            Canvas.pixels[i].getColor(i);
+            //aquí se tiran los rayos
+            
+            Canvas.ctx.fillStyle = Canvas.pixels[i].color;
+            Canvas.ctx.fillRect(Canvas.pixels[i].id.x, Canvas.pixels[i].id.y, Canvas.res, Canvas.res);
+        }
+        for(let i = 0;i < Canvas.pixels.length;i++){
             Canvas.lastPixels[i] = Canvas.pixels[i];
+        }
     }
 }
 

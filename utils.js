@@ -26,15 +26,20 @@ class vec3{
 	modul(){
 		return Math.sqrt(Math.pow(this.x,2)+Math.pow(this.y,2)+Math.pow(this.z,2));
 	}
+
+	normal(){
+		let modul = this.modul();
+		return new vec3(this.x/modul,this.y/modul,this.z);
+	}
 }
 
 class Ray{
 	origin = new vec3(0,0,0);
-	direction = new vec3(0,0,0);
+	direction = new vec3(1,1,1);
 
 	constructor(o,d){
 		this.origin = o;
-		this.direction = d;
+		this.direction = d.normal();
 	}
 
 	f(t){
@@ -53,5 +58,12 @@ class Pixel{
 	constructor(id,color){
 		this.id = id;
 		this.color = color;
+	}
+
+	getColor(id){
+		window.o = [];
+		for(let t = 0;t < Camara.far;t++){
+			window.o[t] = Camara.rays[id].f(t);
+		}
 	}
 }

@@ -58,7 +58,7 @@ class Ray{
 
 		let discriminant = b*b - 4*a*c;
 
-		return discriminant>0?true:false;
+		return discriminant>=0?true:false;
 	}
 }
 

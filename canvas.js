@@ -38,4 +38,4 @@ class Canvas {
     }
 }
 
-Canvas.main(128,72);
+Canvas.main(1280,720);

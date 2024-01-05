@@ -84,7 +84,7 @@ class Pixel{
 
 	getColor(id){
 		let white = 255;
-		this.color = "#000";
+		//this.color = "#000";
 		Camara.rays[id].checkColissions({center:new vec3(0,0,0),radius:12})!=0?this.color = `rgb(${white},${white},${white})`:0;
 	}
 }

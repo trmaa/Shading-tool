@@ -1,11 +1,11 @@
 class Camara{
-	static position = new vec3(0,0,-15);
+	static position = new vec3(0,0,-150);
 	static angle = new vec2(0,0);
 	static rays = [];
 	static aspect = Canvas.cvs.width/Canvas.cvs.height;
 	static fov = 50;
 	static far = 1500;
-	static near = 2;
+	static near = 5;
 
 	static defineRays(){
 		for (let i = 0; i < Canvas.pixels.length; i++) {

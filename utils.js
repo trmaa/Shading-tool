@@ -39,7 +39,7 @@ class Ray{
 
 	constructor(o,d){
 		this.origin = o;
-		this.direction = d;
+		this.direction = d.normal();
 	}
 
 	f(t){
@@ -72,6 +72,7 @@ class Pixel{
 	}
 
 	getColor(id){
-		Camara.rays[id].checkColissions({center:new vec3(0,0,0),radius:10})?this.color = "#fff":0;
+		let white = 255;
+		Camara.rays[id].checkColissions({center:new vec3(0,0,0),radius:12})?this.color = `rgb(${white},${white},${white})`:0;
 	}
 }

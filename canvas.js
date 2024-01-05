@@ -32,6 +32,7 @@ class Canvas {
             Canvas.ctx.fillStyle = Canvas.pixels[i].color;
             Canvas.ctx.fillRect(Canvas.pixels[i].id.x, Canvas.pixels[i].id.y, Canvas.res, Canvas.res);
         }
+        Canvas.lastPixels = [];
         for(let i = 0;i < Canvas.pixels.length;i++){
             Canvas.lastPixels[i] = Canvas.pixels[i];
         }

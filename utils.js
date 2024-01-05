@@ -29,7 +29,7 @@ class vec3{
 
 	normal(){
 		let modul = this.modul();
-		return new vec3(this.x/modul,this.y/modul,this.z);
+		return new vec3(this.x/modul,this.y/modul,this.z/modul);
 	}
 }
 
@@ -39,7 +39,7 @@ class Ray{
 
 	constructor(o,d){
 		this.origin = o;
-		this.direction = d.normal();
+		this.direction = d;
 	}
 
 	f(t){
@@ -48,6 +48,17 @@ class Ray{
 			this.origin.y + this.direction.y * t,
 			this.origin.z + this.direction.z * t
 		);
+	}
+
+	checkColissions(esfera){
+		//Esfera: (bx^2 + by^2)t^2 + 2(axbx + ayby)t + (ax^2 + ay^2 - r^2) = 0
+		let a = this.direction.modul();
+		let b = 2*(this.origin.x*this.direction.x+this.origin.y*this.direction.y+this.origin.z*this.direction.z);
+		let c = this.origin.modul()-esfera.radius;
+
+		let discriminant = b*b - 4*a*c;
+
+		return discriminant>0?true:false;
 	}
 }
 
@@ -61,9 +72,6 @@ class Pixel{
 	}
 
 	getColor(id){
-		window.o = [];
-		for(let t = 0;t < Camara.far;t++){
-			window.o[t] = Camara.rays[id].f(t);
-		}
+		Camara.rays[id].checkColissions({center:new vec3(0,0,0),radius:10})?this.color = "#fff":0;
 	}
 }

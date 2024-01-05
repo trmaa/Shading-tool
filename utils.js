@@ -57,8 +57,19 @@ class Ray{
 		let c = this.origin.modul()-esfera.radius;
 
 		let discriminant = b*b - 4*a*c;
+		let solutions = [];
 
-		return discriminant>=0?true:false;
+		solutions[0] = (Math.sqrt(discriminant)-b)/(2*a);
+		solutions[1] = (-Math.sqrt(discriminant)-b)/(2*a);
+
+		if(solutions[0] || solutions[1]){
+			if(solutions[0] && solutions[1])
+				return solutions[0]>=solutions[1]?solutions[0]:solutions[1];
+			else
+				return solutions[0]?solutions[0]:solutions[1];
+		} else {
+			return 0;
+		}
 	}
 }
 
@@ -73,6 +84,7 @@ class Pixel{
 
 	getColor(id){
 		let white = 255;
-		Camara.rays[id].checkColissions({center:new vec3(0,0,0),radius:12})?this.color = `rgb(${white},${white},${white})`:0;
+		this.color = "#000";
+		Camara.rays[id].checkColissions({center:new vec3(0,0,0),radius:12})!=0?this.color = `rgb(${white},${white},${white})`:0;
 	}
 }

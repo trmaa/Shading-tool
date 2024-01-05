@@ -15,7 +15,7 @@ class Canvas {
 
         for (let x = 0; x < w; x++) {
             for (let y = 0; y < h; y++) {
-                Canvas.pixels[x + w * y] = new Pixel(new vec2(x * Canvas.res, y * Canvas.res), `rgb(${255*y/h},${255*x/w},0)`);
+                Canvas.pixels[x + w * y] = new Pixel(new vec2(x * Canvas.res, y * Canvas.res), `rgb(${Math.random()*255-255*y/h},${Math.random()*255-255*x/w},0)`);
             }
         }
     }
@@ -38,4 +38,4 @@ class Canvas {
     }
 }
 
-Canvas.main(1280,720);
+Canvas.main(192,108);

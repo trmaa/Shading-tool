@@ -8,20 +8,20 @@ class Camara{
 	static near = -2;
 
 	static move(){
-		wDown?Camara.position.z+=0.1:0;
-		sDown?Camara.position.z-=0.1:0;
-		aDown?Camara.position.x+=0.1:0;
-		dDown?Camara.position.x-=0.1:0;
-		eDown?Camara.position.y+=0.1:0;
-		qDown?Camara.position.y-=0.1:0;
+		wDown?Camara.position.z+=1:0;
+		sDown?Camara.position.z-=1:0;
+		aDown?Camara.position.x+=1:0;
+		dDown?Camara.position.x-=1:0;
+		eDown?Camara.position.y+=1:0;
+		qDown?Camara.position.y-=1:0;
 	}
 
 	static defineRays(){
 		for (let i = 0; i < Canvas.pixels.length; i++) {
 		    Camara.rays[i] = new Ray(Camara.position, 
 		    	new vec3(
-		    		Canvas.pixels[i].id.x-Canvas.cvs.width/(2),
-		    		Canvas.pixels[i].id.y-Canvas.cvs.height/(2),
+		    		Canvas.pixels[i].id.x-Canvas.cvs.width/(2/*Canvas.res*/),
+		    		Canvas.pixels[i].id.y-Canvas.cvs.height/(2/*Canvas.res*/),
 		    		Camara.near
 		    	)
 		    );

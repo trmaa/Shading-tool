@@ -51,7 +51,16 @@ class Pixel{
     getColor(id){
         let sphere = new Sphere();
         let res = Camara.rays[id].checkColissions(sphere);
-        res.proove?this.color = `rgb(${255-res.sol.modul()*2},${255-res.sol.modul()*2},${255-res.sol.modul()*2})`:this.color = "#000";
+
+        let lightDirection = new vec3(5,2,2); //this might be -lightDirection
+        lightDirection.normal();
+
+        if(res.proove){
+            let bright = 200-res.sol.dot(lightDirection);
+            this.color = `rgb(${bright},${bright},${bright})`;
+        } else { 
+            this.color = "#000";
+        }
     }
 }
 

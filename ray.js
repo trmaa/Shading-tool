@@ -17,9 +17,9 @@ class Ray{
 
 	checkColissions(esfera){
 		//Esfera: (bx^2 + by^2)t^2 + 2(axbx + ayby)t + (ax^2 + ay^2 - r^2) = 0
-		let a = this.direction.modul();
-		let b = 2*(this.origin.x*this.direction.x+this.origin.y*this.direction.y+this.origin.z*this.direction.z);
-		let c = this.origin.modul()-esfera.radius*esfera.radius;
+		let a = Math.pow(this.direction.modul(),1);//this might be pow(2) :v
+		let b = 2*this.origin.dot(this.direction);
+		let c = Math.pow(this.origin.modul(),1)-esfera.radius*esfera.radius;//this might be pow(2) :v
 
 		let discriminant = b*b - 4*a*c;
 		let t = [];
@@ -38,9 +38,9 @@ class Ray{
 		);
 		normal.normal();
 		normal = new vec3(
-			Math.abs(normal.x),
-			Math.abs(normal.y),
-			Math.abs(normal.z)
+			(normal.x),
+			(normal.y),
+			(normal.z)
 		);
 
 		if(discriminant >= 0){

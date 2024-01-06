@@ -31,6 +31,10 @@ class vec3{
 		let modul = this.modul();
 		return new vec3(this.x/modul,this.y/modul,this.z/modul);
 	}
+
+	dot(n){	
+		return this.x*n.x+this.y*n.y+this.z*n.z;
+	}
 }
 
 class Sphere{

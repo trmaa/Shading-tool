@@ -3,7 +3,7 @@ class Main{
 	}
 	static update(){
 		(Canvas.pixels!=Canvas.lastPixels) ? Canvas.repaint() : Canvas.repaint();
-		//Camara.position.z -= 10;
+		//Camara.position.z += 1;
 		console.log(Camara.position.z)
 	}
 }

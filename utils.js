@@ -54,7 +54,7 @@ class Ray{
 		//Esfera: (bx^2 + by^2)t^2 + 2(axbx + ayby)t + (ax^2 + ay^2 - r^2) = 0
 		let a = this.direction.modul();
 		let b = 2*(this.origin.x*this.direction.x+this.origin.y*this.direction.y+this.origin.z*this.direction.z);
-		let c = this.origin.modul()-esfera.radius;
+		let c = this.origin.modul()-esfera.radius*esfera.radius;
 
 		let discriminant = b*b - 4*a*c;
 		let solutions = [];
@@ -62,8 +62,8 @@ class Ray{
 		solutions[0] = (Math.sqrt(discriminant)-b)/(2*a);
 		solutions[1] = (-Math.sqrt(discriminant)-b)/(2*a);
 
-		if(solutions[0] || solutions[1]){
-			if(solutions[0] && solutions[1])
+		if(discriminant >= 0){
+			if(discriminant > 0)
 				return solutions[0]>=solutions[1]?solutions[0]:solutions[1];
 			else
 				return solutions[0]?solutions[0]:solutions[1];
@@ -84,7 +84,7 @@ class Pixel{
 
 	getColor(id){
 		let white = 255;
-		//this.color = "#000";
-		Camara.rays[id].checkColissions({center:new vec3(0,0,0),radius:12})!=0?this.color = `rgb(${white},${white},${white})`:0;
+		this.color = "#000";
+		Camara.rays[id].checkColissions({center:new vec3(0,0,0),radius:2})!=0?this.color = `rgb(${white},${white},${white})`:0;
 	}
 }

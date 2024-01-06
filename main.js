@@ -9,4 +9,4 @@ class Main{
 }
 
 Main.main();
-setInterval(Main.update,10);
+setInterval(Main.update,20);

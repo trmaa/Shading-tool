@@ -32,9 +32,15 @@ class Ray{
 		h[1] = this.f(t[1]); //the closest
 
 		let normal = new vec3(
-			h[1].x - esfera.center.x,
-			h[1].y - esfera.center.y,
-			h[1].z - esfera.center.z
+			(h[1].x - esfera.center.x),
+			(h[1].y - esfera.center.y),
+			(h[1].z - esfera.center.z)
+		);
+		normal.normal();
+		normal = new vec3(
+			normal.x*2 -1,
+			normal.y*2 -1,
+			normal.z*2 -1
 		);
 
 		if(discriminant >= 0){

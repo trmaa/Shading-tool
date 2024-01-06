@@ -35,5 +35,5 @@ class vec3{
 
 class Sphere{
 	center = new vec3(0,0,0);
-	radius = 2;
+	radius = 4;
 }

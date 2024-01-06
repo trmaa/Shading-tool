@@ -1,5 +1,5 @@
 class Camara{
-	static position = new vec3(0,0,50);
+	static position = new vec3(0,0,22);
 	static angle = new vec2(0,0);
 	static rays = [];
 	static aspect = Canvas.cvs.width/Canvas.cvs.height;

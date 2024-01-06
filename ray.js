@@ -38,9 +38,9 @@ class Ray{
 		);
 		normal.normal();
 		normal = new vec3(
-			normal.x*2 -1,
-			normal.y*2 -1,
-			normal.z*2 -1
+			Math.abs(normal.x),
+			Math.abs(normal.y),
+			Math.abs(normal.z)
 		);
 
 		if(discriminant >= 0){

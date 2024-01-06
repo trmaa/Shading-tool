@@ -51,7 +51,7 @@ class Pixel{
     getColor(id){
         let sphere = new Sphere();
         let res = Camara.rays[id].checkColissions(sphere);
-        res.proove?this.color = `rgb(${res.sol.x*1},${res.sol.y*1},${res.sol.z*1})`:this.color = "#555";
+        res.proove?this.color = `rgb(${255-res.sol.modul()*2},${255-res.sol.modul()*2},${255-res.sol.modul()*2})`:this.color = "#555";
     }
 }
 

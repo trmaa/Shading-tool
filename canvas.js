@@ -56,8 +56,8 @@ class Pixel{
         lightDirection.normal();
 
         if(res.proove){
-            let bright = 200-res.sol.dot(lightDirection);
-            this.color = `rgb(${bright},${bright},${bright})`;
+            let bright = 255-res.sol.dot(lightDirection);
+            this.color = `rgb(${bright},${bright*0.6},${bright*0.1})`;
         } else { 
             this.color = "#000";
         }

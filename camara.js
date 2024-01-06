@@ -8,8 +8,8 @@ class Camara{
 	static near = -2;
 
 	static move(){
-		wDown?Camara.position.z+=1:0;
-		sDown?Camara.position.z-=1:0;
+		wDown?Camara.position.z-=1:0;
+		sDown?Camara.position.z+=1:0;
 		aDown?Camara.position.x+=1:0;
 		dDown?Camara.position.x-=1:0;
 		eDown?Camara.position.y+=1:0;

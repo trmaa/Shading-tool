@@ -31,15 +31,19 @@ class Ray{
 		h[0] = this.f(t[0]);
 		h[1] = this.f(t[1]); //the closest
 
+		let normal = new vec3(
+			h[1].x - esfera.center.x,
+			h[1].y - esfera.center.y,
+			h[1].z - esfera.center.z
+		);
+
 		if(discriminant >= 0){
 			if(discriminant > 0)
-				return {proove:t[0]>=t[1]?t[0]:t[1],sol:h[1]};
+				return {proove:t[0]>=t[1]?t[0]:t[1],sol:normal};
 			else
-				return {proove:t[0]?t[0]:t[1],sol:h[1]};
+				return {proove:t[0]?t[0]:t[1],sol:normal};
 		} else {
 			return 0;
 		}
-
-		return ;
 	}
 }

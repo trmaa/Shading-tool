@@ -32,3 +32,8 @@ class vec3{
 		return new vec3(this.x/modul,this.y/modul,this.z/modul);
 	}
 }
+
+class Sphere{
+	center = new vec3(0,0,0);
+	radius = 2;
+}

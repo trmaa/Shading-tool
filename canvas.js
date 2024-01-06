@@ -39,4 +39,19 @@ class Canvas {
     }
 }
 
-Canvas.main(192,108);
+class Pixel{
+    id = new vec2(0,0);
+    color = "#000";
+
+    constructor(id,color){
+        this.id = id;
+        this.color = color;
+    }
+
+    getColor(id){
+        let res = Camara.rays[id].checkColissions({center:new vec3(0,0,0),radius:2});
+        res.proove?this.color = `rgb(${res.sol.x},${res.sol.y},${res.sol.z})`:this.color = "#333";
+    }
+}
+
+Canvas.main(128,72);

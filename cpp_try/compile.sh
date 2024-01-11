@@ -1,0 +1,1 @@
+g++ -o mi_programa main.cpp -lGLEW -lglfw -lGL -I/usr/include -L/usr/lib/x86_64-linux-gnu -lGLEW -lglfw -lGL

@@ -4,7 +4,6 @@ class Main{
 	static update(){
 		(Canvas.pixels!=Canvas.lastPixels) ? Canvas.repaint() : Canvas.repaint();
 		Camara.move();
-		console.log(Camara.position.z)
 	}
 }
 

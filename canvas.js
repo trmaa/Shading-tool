@@ -52,7 +52,7 @@ class Pixel{
         let sphere = new Sphere();
         let res = Camara.rays[id].checkColissions(sphere);
 
-        let lightDirection = new vec3(5,2,2); //this might be -lightDirection
+        let lightDirection = new vec3(5,2,10); //this might be -lightDirection
         lightDirection.normal();
 
         if(res.proove){

@@ -1,4 +1,9 @@
 #include <SDL.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/random.hpp>
+#include <iostream>
+#include <vector>
+
 #include "window.hpp"
 
 struct Main{

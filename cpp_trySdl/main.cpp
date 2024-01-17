@@ -18,7 +18,7 @@ struct Main{
                     quit = true;
                 }
             }
-            loop();
+            Main::loop();
         }
 
         Window::cleanup();

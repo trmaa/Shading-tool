@@ -1,6 +1,3 @@
-g++ -c main.cpp
-g++ main.o -o renderer.exe -lsfml-graphics -lsfml-window -lsfml-system
-
-rm *.o
+g++ -o renderer.exe main.cpp $(pkg-config --cflags --libs sdl2)
 
 ./renderer.exe

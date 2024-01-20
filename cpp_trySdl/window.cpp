@@ -15,7 +15,7 @@ void Window::init() {
         for (int x = 0; x < Window::width; x++) {
             Pixel pixel;
             pixel.id = glm::vec2(x, y);
-            pixel.color = glm::vec3(255-255*y/Window::height,0,0);
+            pixel.color = glm::vec3(255*y/Window::height,255*x/Window::width,0);
             Window::pixels.push_back(pixel);
         }
     }

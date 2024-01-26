@@ -5,4 +5,8 @@ public class vec2{
 		this.x = x;
 		this.y = y;
 	}
+
+	public double modul(){
+		return Math.sqrt(this.x*this.x+this.y*this.y);
+	}
 }

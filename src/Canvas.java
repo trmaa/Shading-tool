@@ -32,6 +32,8 @@ public class Canvas extends JPanel {
             int ancho = (int) (1 * escalaX) + 1;
             int alto = (int) (1 * escalaY) + 1;
 
+            p.color = Main.camara.castRays(p);
+
             Canvas.print(g, p.color, new vec2(x, y), new vec2(ancho, alto));
         }
     }

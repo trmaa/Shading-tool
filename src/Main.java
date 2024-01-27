@@ -8,7 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("¡Hola! :)");
-        Main.camara.initRays();
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -22,5 +21,8 @@ public class Main {
     	Main.camara.move();
 
         Main.canvas.repaint();
+
+        System.out.println("angulos: " + Main.camara.angle.x +" - "+ Main.camara.angle.y);
+        System.out.println("posicion: " + Main.camara.position.x +" - "+ Main.camara.position.z);
     }
 }

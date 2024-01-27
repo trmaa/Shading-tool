@@ -7,7 +7,7 @@ public class Sphere{
 		this.radius = radius;
 	}
 
-	/*public boolean colide(Ray ray){
+	public boolean colide(Ray ray){
 		//vectors will allwais be in modul
 
 		//rr = xx + yy + zz -> return 1;
@@ -22,22 +22,7 @@ public class Sphere{
 
 		//t = (sqrt(bb-4ac)-b)/(2a)
 
-		double a = ray.direction.dot();
-		double b = 2*ray.direction.dot()*(ray.origin.dot()-this.center.dot());
-		double c = (ray.origin.dot()-this.center.dot())*(ray.origin.dot()-this.center.dot())-this.radius*this.radius;
-
-		double[] t = {
-			(Math.sqrt(b*b-4*a*c)-b)/(2*a),
-			(-Math.sqrt(b*b-4*a*c)-b)/(2*a)
-		};
-
-		if(t[0]!=0||t[1]!=0)
-			return true;
-		else 
-			return false;
-	}*/
-	public boolean colide(Ray ray) {
-        vec3 oc = new vec3(
+		vec3 oc = new vec3(
         	ray.origin.x - this.center.x,
         	ray.origin.y - this.center.y,
         	ray.origin.z - this.center.z
@@ -47,6 +32,16 @@ public class Sphere{
         double c = oc.modul() - this.radius * this.radius;
         double discriminant = b * b - 4 * a * c;
 
-        return discriminant > 0;
-    }
+		double[] t = {
+			(Math.sqrt(discriminant)-b)/(2*a),
+			(-Math.sqrt(discriminant)-b)/(2*a)
+		};
+
+		/*if(t[0]!=0||t[1]!=0)
+			return true;
+		else 
+			return false;*/
+
+		return discriminant > 0;
+	}
 }

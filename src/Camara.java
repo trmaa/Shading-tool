@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Camara{
 	public vec3 position = new vec3(0,0,-600);
-	public vec2 angle = new vec2(1,3.6);
+	public vec2 angle = new vec2(1,0.5);
 	public Ray[] ray = new Ray[Main.canvas.pixel.length];
 	public Controler controls = new Controler();
 
@@ -21,7 +21,7 @@ public class Camara{
 
 		Sphere bola = new Sphere(new vec3(0,0,-10),5); //-10, 10
 
-		return bola.colide(this.ray[id])?new Color(0xffffff):new Color(0x000000);
+		return bola.colide(this.ray[id])?new Color(0xffffff):new Color((int)(255*pixel.id.y/108),(int)(255*pixel.id.x/192),100);
 	}
 
 	public void move(){

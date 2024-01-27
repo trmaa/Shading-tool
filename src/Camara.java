@@ -19,13 +19,6 @@ public class Camara{
 					this.position.z+Math.sin(this.angle.y)
 				)
 			);
-
-			int x = (int) this.ray[id].direction.x;
-			int y = (int) this.ray[id].direction.y;
-			int w = (int) Main.canvas.pWidth;
-			int h = (int) Main.canvas.pHeight;
-
-			Main.canvas.pixel[id] = new Pixel(new vec2(x, y), new Color((int) (255*x/w), (int) (255*y/h), 100));
 		}
 	}
 

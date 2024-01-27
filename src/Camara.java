@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 public class Camara{
 	public vec3 position = new vec3(0,0,0);
 	public vec2 angle = new vec2(0,0);
@@ -6,14 +9,23 @@ public class Camara{
 
 	public void initRays(){
 		for(Pixel pixel : Main.canvas.pixel){
-			this.ray[(int) (pixel.id.x+pixel.id.y*Main.canvas.pWidth)] = new Ray(
+			int id = (int) (pixel.id.x+pixel.id.y*Main.canvas.pWidth);
+
+			this.ray[id] = new Ray(
 				this.position,
 				new vec3(
 					this.position.x+pixel.id.x*Math.cos(this.angle.y),
-					this.position.y+pixel.id.y*Math.sin(this.angle.x),
+					this.position.y+pixel.id.y*Math.cos(this.angle.x),
 					this.position.z+Math.sin(this.angle.y)
 				)
 			);
+
+			int x = (int) this.ray[id].direction.x;
+			int y = (int) this.ray[id].direction.y;
+			int w = (int) Main.canvas.pWidth;
+			int h = (int) Main.canvas.pHeight;
+
+			Main.canvas.pixel[id] = new Pixel(new vec2(x, y), new Color((int) (255*x/w), (int) (255*y/h), 100));
 		}
 	}
 

@@ -8,6 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("¡Hola! :)");
+        Main.camara.initRays();
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -19,5 +20,7 @@ public class Main {
 
     public static void update(){
     	Main.camara.move();
+
+        Main.canvas.repaint();
     }
 }

@@ -14,7 +14,7 @@ public class Canvas extends JPanel {
 
         for (int y = 0; y < h; y++) {
             for (int x = 0; x < w; x++) {
-                this.pixel[x + y * w] = new Pixel(new vec2(x, y), new Color((int) (255*x/w), (int) (255*y/h), 0));
+                this.pixel[x + y * w] = new Pixel(new vec2(x, y), new Color(0,0,0));
             }
         }
     }

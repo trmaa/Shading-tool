@@ -3,8 +3,13 @@ import java.awt.*;
 
 public class Canvas extends JPanel {
     public Pixel[] pixel;
+    public int pWidth;
+    public int pHeight;
 
     public Canvas(int w, int h) {
+        this.pWidth = w;
+        this.pHeight = h;
+
         this.pixel = new Pixel[w * h];
 
         for (int y = 0; y < h; y++) {
@@ -18,8 +23,8 @@ public class Canvas extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        double escalaX = (double) this.getWidth() / 192;
-        double escalaY = (double) this.getHeight() / 108;
+        double escalaX = (double) this.getWidth() / this.pWidth;
+        double escalaY = (double) this.getHeight() / this.pHeight;
 
         for (Pixel p : this.pixel) {
             int x = (int) (p.id.x * escalaX);
@@ -34,15 +39,5 @@ public class Canvas extends JPanel {
     private static void print(Graphics g, Color col, vec2 pos, vec2 scale) {
         g.setColor(col);
         g.fillRect((int) pos.x, (int) pos.y, (int) scale.x, (int) scale.y);
-    }
-}
-
-class Pixel {
-    public Color color = new Color(0x000000);
-    public vec2 id = new vec2(0, 0);
-
-    public Pixel(vec2 id, Color col) {
-        this.color = col;
-        this.id = id;
     }
 }

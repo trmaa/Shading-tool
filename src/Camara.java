@@ -4,6 +4,19 @@ public class Camara{
 	public Ray[] ray = new Ray[Main.canvas.pixel.length];
 	public Controler controls = new Controler();
 
+	public void initRays(){
+		for(Pixel pixel : Main.canvas.pixel){
+			this.ray[(int) (pixel.id.x+pixel.id.y*Main.canvas.pWidth)] = new Ray(
+				this.position,
+				new vec3(
+					this.position.x+pixel.id.x*Math.cos(this.angle.y),
+					this.position.y+pixel.id.y*Math.sin(this.angle.x),
+					this.position.z+Math.sin(this.angle.y)
+				)
+			);
+		}
+	}
+
 	public void move(){
 		if(this.controls.wDown){
 			this.position.x += Math.cos(this.angle.y);

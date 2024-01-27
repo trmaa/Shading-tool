@@ -1,6 +1,10 @@
 public class Ray{
-	public vec3 origin;
-	public vec3 direction;
+	public vec3 origin, direction;
+
+	public Ray(vec3 origin, vec3 direction){
+		this.origin = origin;
+		this.direction = direction;
+	}
 
 	public vec3 f(double t){
 		return new vec3(

@@ -36,6 +36,13 @@ public class Canvas extends JPanel {
 
             Canvas.print(g, p.color, new vec2(x, y), new vec2(ancho, alto));
         }
+
+        for(Ray ray : Main.camara.ray){
+            Canvas.print(g, new Color(0xff0000), Main.camara.project(ray.direction), new vec2((12800/Main.camara.distance(ray.direction)*0.1f),(12800/Main.camara.distance(ray.direction)*0.1f)));
+        }
+        //System.out.println("COORDS: "+  Main.camara.project(Main.camara.ray[0].direction).x);
+
+        Canvas.print(g, new Color(0x00ffff), Main.camara.project(new vec3(0,0,-10)), new vec2(20,20));
     }
 
     private static void print(Graphics g, Color col, vec2 pos, vec2 scale) {

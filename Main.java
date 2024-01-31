@@ -23,6 +23,6 @@ public class Main {
         Main.canvas.repaint();
 
         System.out.println("angulos: " + Main.camara.angle.x +" - "+ Main.camara.angle.y);
-        System.out.println("posicion: " + Main.camara.position.x +" - "+ Main.camara.position.z);
+        System.out.println("posicion: " + Main.camara.position.x + " - "+ Main.camara.position.y +" - "+ Main.camara.position.z);
     }
 }

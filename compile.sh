@@ -1,10 +1,8 @@
-rm renderer.jar
+javac -d . *.java
 
-javac -d . $(find ./src -name "*.java")
+jar cfe renderer.jar Main *.class
 
-jar cfe renderer.jar Main -C . .
-
-find ./ -name "*.class" -exec rm {} \;
+rm *.class
 
 java -jar renderer.jar
 

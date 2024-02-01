@@ -14,11 +14,11 @@ public class vec2{
 		return this.x*v.x+this.y*v.y;
 	}
 
-	public vec3 add(vec2 v) {
+	public vec2 add(vec2 v) {
 	    return new vec2(this.x + v.x, this.y + v.y);
 	}
 
-	public vec3 product(vec2 v) {
+	public vec2 product(vec2 v) {
 	    return new vec2(this.x * v.x, this.y * v.y);
 	}
 }

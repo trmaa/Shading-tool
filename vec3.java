@@ -11,7 +11,15 @@ public class vec3{
 		return Math.sqrt(this.x*this.x+this.y*this.y+this.z*this.z);
 	}
 
-	public double dot(){
-		return this.x*this.x+this.y*this.y+this.z*this.z;
+	public double dot(vec3 v){
+		return this.x*v.x+this.y*v.y+this.z*v.z;
+	}
+
+	public vec3 add(vec3 v) {
+	    return new vec3(this.x + v.x, this.y + v.y, this.z + v.z);
+	}
+
+	public vec3 product(vec3 v) {
+	    return new vec3(this.x * v.x, this.y * v.y, this.z * v.z);
 	}
 }
